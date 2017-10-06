@@ -1,0 +1,15 @@
+<div id="notes" class="mdl-grid">
+    <div *ngFor="let note of notes" class="mdl-card mdl-cell mdl-cell--4-col section--center mdl-shadow--2dp">
+        <h3 *ngIf="note.title.isNotEmpty">
+            {{note.title}}
+        </h3>
+        <div class="mdl-card__supporting-text note-text">
+            <p>{{note.text}}</p>
+            <img *ngIf="note.imageUrl != null" src="{{note.imageUrl}}" >
+        </div>
+
+        <div *ngIf="service.user != null" class="mdl-card__actions note-actions">
+            <a (click)="service.removeItem(note.key)" title="Remove note" class="note-remove"><i class="material-icons">delete</i></a>
+        </div>
+    </div>
+</div>

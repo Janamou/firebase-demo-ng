@@ -7,6 +7,6 @@ import '../../firebase_service.dart';
     templateUrl: 'header_component.html',
     directives: const [CORE_DIRECTIVES])
 class HeaderComponent {
-  FirebaseService service;
+  final FirebaseService service;
   HeaderComponent(this.service);
 }
