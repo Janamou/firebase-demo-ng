@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url(https://fonts.googleapis.com/css?family=Material+Icons);
+
+body *:not(.material-icons) {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.error {
+  color: red;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgb(0,150,136);
+}
+
+input[type="text"],
+textarea {
+  width: calc(100% - 20px);
+  background: #fafafa;
+  border: 2px solid #bdbdbd;
+  font-size: 16px;
+  padding: 10px;
+}
+
+input[type="text"] {
+  line-height: 16px;
+  height: 16px;
+  margin-bottom: 10px;
+}
+
+input[type="file"] {
+  font-size: 13px;
+}
+
+textarea {
+  height: 100px;
+}
+
+.visible-mobile {
+  display: block !important;
+}
+
+.visible-desktop {
+  display: none !important;
+}
+
+.mdl-layout-title {
+  display: none;
+}
+
+.mdl-layout__header-row {
+  padding-left: 16px;
+}
+
+.mdl-layout__header-row .mdl-navigation ul {
+  margin: 0;
+}
+
+.mdl-layout__header-row .mdl-navigation ul li {
+  display: inline-block;
+  list-style: none;
+}
+
+#profile * {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+#profile p {
+  margin-bottom: 0;
+  display: none;
+}
+
+#profile a {
+  color: white;
+}
+
+#profile a:hover {
+  text-decoration: none;
+}
+
+#profile img {
+  border-radius: 100%;
+}
+
+#container {
+  min-height: 300px;
+  margin: 0 10px;
+}
+
+#container section, .mdl-mini-footer {
+  text-align: left;
+}
+
+#notes-form h2 {
+  font-size: 30px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+#notes-form label {
+  font-size: 20px;
+  line-height: 2;
+  color: black;
+}
+
+#actual-image-remove {
+  margin-left: 20px;
+}
+
+#submit {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.mdl-spinner {
+  margin: 20px auto 0;
+  display: block;
+  font-size: 16px;
+  color: #bdbdbd;
+}
+
+.mdl-grid {
+  margin-bottom: 20px;
+  position: relative;
+  max-width: 1000px;
+}
+
+.mdl-card {
+  min-height: 160px;
+  display: inline-block;
+}
+
+.mdl-card__supporting-text {
+  margin: 20px 15px;
+  padding: 0;
+  color: inherit;
+}
+
+.mdl-card__supporting-text h3 {
+  font-size: 24px;
+  margin: 0 30px 10px 0;
+  line-height: 1;
+  color: black;
+}
+
+.mdl-card__supporting-text p {
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.mdl-card__supporting-text img {
+  max-width: 100%;
+}
+
+.mdl-card__actions {
+  margin: 0;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 10;
+  width: 24px;
+}
+
+.mdl-card__metadata i {
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+.mdl-card__actions a {
+  color: #9e9e9e;
+}
+
+.mdl-card__actions a:hover {
+  color: rgb(68,138,255);
+}
+
+.mdl-logo {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.mdl-mega-footer__bottom-section {
+  padding-top: 0;
+  clear: both;
+}
+
+.mdl-mega-footer__bottom-section p {
+  font-size: 16px;
+}
+
+@media all and (min-width: 768px) {
+  input[type="text"],
+  textarea {
+    width: 80%;
+  }
+  .visible-mobile {
+    display: none !important;
+  }
+
+  .visible-desktop {
+    display: block !important;
+  }
+
+  .mdl-layout__header-row {
+    padding-left: 40px;
+  }
+
+  #profile p {
+    display: inline-block;
+  }
+
+  #container {
+    min-height: 600px;
+  }
+}

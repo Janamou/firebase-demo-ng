@@ -1,0 +1,19 @@
+<header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title visible-desktop">Angular notes board</span>
+        <span class="mdl-layout-title visible-mobile">Angular NB</span>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+            <ul>
+                <li id="profile" *ngIf="service.user != null">
+                    <img src="{{service.user.photoURL}}" width="40" height="40">
+                    <p>{{service.user.displayName}} ({{service.user.email}})</p>
+                    <a (click)="service.signOut()">Sign out</a>
+                </li>
+                <li id="login" *ngIf="service.user == null">
+                    <a href="#" class="mdl-button mdl-button--raised mdl-button--accent" (click)="service.loginWithGoogle()">Sign in with Google</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
