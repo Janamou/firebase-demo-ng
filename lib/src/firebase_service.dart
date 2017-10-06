@@ -18,7 +18,7 @@ class FirebaseService {
         databaseRef = fb.database().ref("notes"),
         storageRef = fb.storage().ref("notes");
 
-  initData() {
+  init() {
     databaseRef.onChildAdded.listen((e) {
       // Snapshot of the data.
       fb.DataSnapshot data = e.snapshot;
@@ -39,7 +39,7 @@ class FirebaseService {
       // Removes also the image from storage.
       var imageUrl = val[jsonTagImgUrl];
       if (imageUrl != null) {
-        _removeItemImage(imageUrl);
+        removeItemImage(imageUrl);
       }
       notes.removeWhere((n) => n.key == data.key);
     });
@@ -99,15 +99,5 @@ class FirebaseService {
 
   signOut() async {
     await auth.signOut();
-  }
-
-  // Removes image with an imageUrl from the storage.
-  _removeItemImage(String imageUrl) async {
-    try {
-      var imageRef = fb.storage().refFromURL(imageUrl);
-      await imageRef.delete();
-    } catch (e) {
-      print("Error in deleting $imageUrl: $e");
-    }
   }
 }

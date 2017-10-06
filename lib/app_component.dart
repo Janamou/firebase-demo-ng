@@ -1,6 +1,7 @@
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 
+import 'src/component/note/new_note_component.dart';
 import 'src/component/note/note_component.dart';
 import 'src/component/footer/footer_component.dart';
 import 'src/component/header/header_component.dart';
@@ -14,7 +15,8 @@ import 'src/firebase_service.dart';
       materialDirectives,
       HeaderComponent,
       FooterComponent,
-      NoteComponent
+      NoteComponent,
+      NewNoteComponent
     ],
     providers: const [FirebaseService])
 class AppComponent implements OnInit {
@@ -24,6 +26,6 @@ class AppComponent implements OnInit {
 
   @override
   ngOnInit() {
-    _service.initData();
+    _service.init();
   }
 }

@@ -1,0 +1,22 @@
+<form (ngSubmit)="submitForm()" #addNote="ngForm" *ngIf="service.user != null">
+    <div class="mdl-grid">
+        <h2 class="mdl-cell mdl-cell--12-col">Add new awesome note</h2>
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet">
+            <label for="new_note">Your awesome note<sup>*</sup></label><br>
+            <input type="text" id="new_note_title" placeholder="Note title" [(ngModel)]="note.title">
+            <textarea placeholder="Note text" id="new_note" cols="10" rows="5" [(ngModel)]="note.text"></textarea>
+        </div>
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet" id="note-image">
+            <label for="upload-image">Attach image</label><br>
+            <input type="file" id="upload-image" accept="image/*" *ngIf="note.imageUrl == null"
+                   (change)="uploadImage($event)" [disabled]="fileDisabled">
+            <div id="actual-image-container" *ngIf="note.imageUrl != null">
+                <img [src]="note.imageUrl" width="200" id="actual-image">
+                <a id="actual-image-remove" title="Remove image" (click)="removeImage()"><span class="material-icons">delete</span></a></div>
+        </div>
+        <div class="mdl-cell mdl-cell--12-col">
+            <input type="submit" value="Add" #submit [disabled]="!addNote.form.valid"
+                   class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+        </div>
+    </div>
+</form>

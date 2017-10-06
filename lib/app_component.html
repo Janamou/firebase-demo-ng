@@ -2,25 +2,10 @@
     <layout-header></layout-header>
 
     <main class="mdl-layout__content">
+        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></div>
+
         <div id="container">
-            <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></div>
-            <form id="notes-form" style="display: none">
-                <div class="mdl-grid">
-                    <h2 class="mdl-cell mdl-cell--12-col">Add new awesome note</h2>
-                    <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet">
-                        <label for="new-note">Your awesome note<sup>*</sup></label><br>
-                        <input type="text" id="new-note-title" placeholder="Note title" disabled>
-                        <textarea placeholder="Note text" id="new-note" cols="10" rows="5" disabled></textarea>
-                    </div>
-                    <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet" id="note-image">
-                        <label for="upload-image">Attach image</label><br>
-                        <input type="file" id="upload-image" accept="image/*" disabled>
-                    </div>
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <input type="submit" value="Add" id="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" disabled>
-                    </div>
-                </div>
-            </form>
+            <new-note></new-note>
             <notes></notes>
         </div>
         <layout-footer></layout-footer>

@@ -10,7 +10,7 @@ class Note {
   String title;
   String imageUrl;
 
-  Note(this.text, [this.title, this.imageUrl, this.key]);
+  Note([this.text, this.title, this.imageUrl, this.key]);
 
   static Map toMap(Note item) {
     Map jsonMap = {
