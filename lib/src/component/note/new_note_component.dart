@@ -11,14 +11,11 @@ import '../../model/note.dart';
     directives: const [CORE_DIRECTIVES, formDirectives])
 class NewNoteComponent {
   final FirebaseService service;
-
+  bool fileDisabled = false;
   Note note;
 
   @ViewChild("submit")
   ElementRef submitButton;
-
-
-  bool fileDisabled = false;
 
   NewNoteComponent(this.service) : this.note = new Note();
 
@@ -28,11 +25,13 @@ class NewNoteComponent {
     fileDisabled = true;
     var file = (e.target as FileUploadInputElement).files[0];
     var image = await service.postItemImage(file);
+
     note.imageUrl = image.toString();
   }
 
   removeImage() {
     service.removeItemImage(note.imageUrl);
+
     note.imageUrl = null;
     fileDisabled = false;
   }
