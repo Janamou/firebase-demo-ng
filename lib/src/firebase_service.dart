@@ -11,7 +11,7 @@ class FirebaseService {
   final fb.DatabaseReference databaseRef;
   final fb.StorageReference storageRef;
   final List<Note> notes = [];
-  fb.User user = null;
+  fb.User user;
 
   FirebaseService()
       : auth = fb.auth(),
@@ -91,7 +91,7 @@ class FirebaseService {
   loginWithGoogle() async {
     var provider = new fb.GoogleAuthProvider();
     try {
-      return await auth.signInWithPopup(provider);
+      await auth.signInWithPopup(provider);
     } catch (e) {
       print("Error in sign in with google: $e");
     }
