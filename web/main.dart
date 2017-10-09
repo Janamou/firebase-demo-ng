@@ -8,10 +8,7 @@ void main() {
       apiKey: "",
       authDomain: "",
       databaseURL: "",
-      //projectId: "",
-      storageBucket: ""
-      //messagingSenderId: ""
-      );
+      storageBucket: "");
 
   bootstrap(AppComponent);
 }
