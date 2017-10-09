@@ -21,7 +21,7 @@ input[type="text"]:focus,
 input[type="file"]:focus,
 textarea:focus {
   outline: none;
-  box-shadow: 0 0 8px rgb(0,150,136);
+  box-shadow: 0 0 8px rgb(3,169,244);
 }
 
 input[type="text"],
