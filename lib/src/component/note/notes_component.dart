@@ -5,13 +5,13 @@ import '../../model/note.dart';
 
 @Component(
     selector: 'notes',
-    templateUrl: 'note_component.html',
+    templateUrl: 'notes_component.html',
     directives: const [CORE_DIRECTIVES])
-class NoteComponent implements OnInit {
+class NotesComponent implements OnInit {
   final FirebaseService service;
-  List<Note> notes;
+  List<Note> notes = [];
 
-  NoteComponent(this.service);
+  NotesComponent(this.service);
 
   @override
   ngOnInit() {

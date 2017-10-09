@@ -73,7 +73,7 @@ class FirebaseService {
       var snapshot = await storageRef.child(file.name).put(file).future;
       return snapshot.downloadURL;
     } catch (e) {
-      print("Error in uploading to database: $e");
+      print("Error in uploading to storage: $e");
     }
   }
 
@@ -93,7 +93,7 @@ class FirebaseService {
     try {
       await auth.signInWithPopup(provider);
     } catch (e) {
-      print("Error in sign in with google: $e");
+      print("Error in sign in with Google: $e");
     }
   }
 

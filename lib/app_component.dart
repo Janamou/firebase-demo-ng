@@ -1,7 +1,7 @@
 import 'package:angular/angular.dart';
 
 import 'src/component/note/new_note_component.dart';
-import 'src/component/note/note_component.dart';
+import 'src/component/note/notes_component.dart';
 import 'src/component/footer/footer_component.dart';
 import 'src/component/header/header_component.dart';
 import 'src/firebase_service.dart';
@@ -13,7 +13,7 @@ import 'src/firebase_service.dart';
     directives: const [
       HeaderComponent,
       FooterComponent,
-      NoteComponent,
+      NotesComponent,
       NewNoteComponent
     ],
     providers: const [FirebaseService])
