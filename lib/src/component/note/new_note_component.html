@@ -1,4 +1,4 @@
-<form (ngSubmit)="submitForm()" #addNote="ngForm" *ngIf="service.user != null">
+<form (ngSubmit)="submitForm()" #addNote="ngForm" *ngIf="service.user != null" id="notes-form">
     <div class="mdl-grid">
         <h2 class="mdl-cell mdl-cell--12-col">Add new awesome note</h2>
         <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet">
@@ -16,7 +16,7 @@
         </div>
         <div class="mdl-cell mdl-cell--12-col">
             <input type="submit" value="Add" #submit [disabled]="!addNote.form.valid"
-                   class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                   class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="submit">
         </div>
     </div>
 </form>

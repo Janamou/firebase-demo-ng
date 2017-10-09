@@ -5,6 +5,14 @@ body *:not(.material-icons) {
   font-family: 'Montserrat', sans-serif !important;
 }
 
+a {
+  text-decoration: underline;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
 .error {
   color: red;
 }
