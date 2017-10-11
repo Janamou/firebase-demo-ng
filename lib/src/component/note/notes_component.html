@@ -5,11 +5,13 @@
                 {{note.title}}
             </h3>
             <p>{{note.text}}</p>
-            <img *ngIf="note.imageUrl != null" src="{{note.imageUrl}}" >
+            <img *ngIf="note.imageUrl != null" [src]="note.imageUrl" >
         </div>
 
         <div *ngIf="service.user != null" class="mdl-card__actions note-actions">
-            <a (click)="service.removeItem(note.key)" title="Remove note" class="note-remove"><i class="material-icons">delete</i></a>
+            <a (click)="service.removeItem(note.key)" title="Remove note" class="note-remove">
+                <i class="material-icons">delete</i>
+            </a>
         </div>
     </div>
 </div>

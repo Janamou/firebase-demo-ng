@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:firebase/firebase.dart' as fb;
@@ -12,7 +11,7 @@ class FirebaseService {
   final fb.StorageReference storageRef;
   final List<Note> notes = [];
   fb.User user;
-  bool isLoading = true;
+  bool loading = true;
 
   FirebaseService()
       : auth = fb.auth(),
@@ -45,10 +44,12 @@ class FirebaseService {
       notes.removeWhere((n) => n.key == data.key);
     });
 
+    // Sets loading to true when path changes
     databaseRef.onValue.listen((e) {
-      isLoading = false;
+      loading = false;
     });
 
+    // Sets user when auth state changes
     auth.onIdTokenChanged.listen((e) {
       user = e;
     });
@@ -77,7 +78,7 @@ class FirebaseService {
     try {
       var task = storageRef.child(file.name).put(file);
       task.onStateChanged
-          .listen((_) => isLoading = true, onDone: () => isLoading = false);
+          .listen((_) => loading = true, onDone: () => loading = false);
 
       var snapshot = await task.future;
       return snapshot.downloadURL;
