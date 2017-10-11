@@ -1,6 +1,6 @@
 # AngularDart + Firebase = ♥ demo
 
-Demo app for my talk at DevFest Ukraine 2017. The application is written in AngularDart and uses the [Firebase library](https://github.com/firebase/firebase-dart/).
+Demo app for my talk at DevFest Ukraine 2017. The application is written in [AngularDart](https://webdev.dartlang.org/angular) and uses the [Firebase library](https://github.com/firebase/firebase-dart/).
 
 ![Dart + Firebase App](https://github.com/Janamou/firebase-demo-ng/blob/master/app.png)
 
