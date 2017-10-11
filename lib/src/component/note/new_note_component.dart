@@ -20,13 +20,12 @@ class NewNoteComponent {
   NewNoteComponent(this.service) : this.note = new Note();
 
   uploadImage(e) async {
-    //TODO spinner
-    // spinner.classes.add("is-active");
     fileDisabled = true;
     var file = (e.target as FileUploadInputElement).files[0];
     var image = await service.postItemImage(file);
 
     note.imageUrl = image.toString();
+    fileDisabled = false;
   }
 
   removeImage() {

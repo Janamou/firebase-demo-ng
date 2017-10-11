@@ -2,7 +2,7 @@
     <layout-header></layout-header>
 
     <main class="mdl-layout__content">
-        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></div>
+        <div *ngIf="service.isLoading" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
 
         <div id="container">
             <new-note></new-note>

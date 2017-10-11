@@ -1,13 +1,11 @@
-<form (ngSubmit)="submitForm()" #addNote="ngForm" *ngIf="service.user != null" id="notes-form">
+<form (ngSubmit)="submitForm()" *ngIf="service.user != null" id="notes-form">
     <div class="mdl-grid">
         <h2 class="mdl-cell mdl-cell--12-col">Add new awesome note</h2>
         <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet">
-            <label for="new_note">Your awesome note<sup>*</sup></label><br>
-            <input type="text" id="new_note_title" placeholder="Note title" [(ngModel)]="note.title">
-            <textarea placeholder="Note text" id="new_note" cols="10" rows="5" [(ngModel)]="note.text" required
-                      #text="ngForm" ngControl="text"
-                      [style.border]="text.valid || text.pristine ? '' : '2px solid red'"></textarea>
-            <p [hidden]="text.valid || text.pristine" class="error">Please fill the note text.</p>
+            <label for="new-note">Your awesome note<sup>*</sup></label><br>
+            <input type="text" id="new-note-title" placeholder="Note title" [(ngModel)]="note.title">
+            <textarea placeholder="Note text" id="new-note" cols="10" rows="5" [(ngModel)]="note.text"
+                      required></textarea>
         </div>
         <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet" id="note-image">
             <label for="upload-image">Attach image</label><br>
@@ -15,11 +13,13 @@
                    (change)="uploadImage($event)" [disabled]="fileDisabled">
             <div id="actual-image-container" *ngIf="note.imageUrl != null">
                 <img [src]="note.imageUrl" width="200" id="actual-image">
-                <a id="actual-image-remove" title="Remove image" (click)="removeImage()"><span class="material-icons">delete</span></a>
+                <a id="actual-image-remove" title="Remove image" (click)="removeImage()">
+                    <span class="material-icons">delete</span>
+                </a>
             </div>
         </div>
         <div class="mdl-cell mdl-cell--12-col">
-            <input type="submit" value="Add" #submit [disabled]="!addNote.form.valid"
+            <input type="submit" value="Add" #submit
                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="submit">
         </div>
     </div>

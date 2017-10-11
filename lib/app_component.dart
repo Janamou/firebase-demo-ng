@@ -11,6 +11,7 @@ import 'src/firebase_service.dart';
     styleUrls: const ['app_component.css'],
     templateUrl: 'app_component.html',
     directives: const [
+      CORE_DIRECTIVES,
       HeaderComponent,
       FooterComponent,
       NotesComponent,
@@ -18,12 +19,12 @@ import 'src/firebase_service.dart';
     ],
     providers: const [FirebaseService])
 class AppComponent implements OnInit {
-  final FirebaseService _service;
+  final FirebaseService service;
 
-  AppComponent(this._service);
+  AppComponent(this.service);
 
   @override
   ngOnInit() {
-    _service.init();
+    service.init();
   }
 }

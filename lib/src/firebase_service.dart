@@ -12,6 +12,7 @@ class FirebaseService {
   final fb.StorageReference storageRef;
   final List<Note> notes = [];
   fb.User user;
+  bool isLoading = true;
 
   FirebaseService()
       : auth = fb.auth(),
@@ -44,6 +45,10 @@ class FirebaseService {
       notes.removeWhere((n) => n.key == data.key);
     });
 
+    databaseRef.onValue.listen((e) {
+      isLoading = false;
+    });
+
     auth.onIdTokenChanged.listen((e) {
       user = e;
     });
@@ -70,7 +75,11 @@ class FirebaseService {
   // Puts image into a storage.
   postItemImage(File file) async {
     try {
-      var snapshot = await storageRef.child(file.name).put(file).future;
+      var task = storageRef.child(file.name).put(file);
+      task.onStateChanged
+          .listen((_) => isLoading = true, onDone: () => isLoading = false);
+
+      var snapshot = await task.future;
       return snapshot.downloadURL;
     } catch (e) {
       print("Error in uploading to storage: $e");
@@ -87,8 +96,8 @@ class FirebaseService {
     }
   }
 
-  // Logins with the Google auth provider.
-  loginWithGoogle() async {
+  // Signs in with the Google auth provider.
+  signInWithGoogle() async {
     var provider = new fb.GoogleAuthProvider();
     try {
       await auth.signInWithPopup(provider);
